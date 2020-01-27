@@ -12,15 +12,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void) {
-	char string[] = "Welcome,to,Sunbeam,CDAC,Diploma,Course";
-	printf("\nstring %u",string);
-	printf("\n%s",string);
-	char *point = strtok(string,",");
+#include <stdio.h>
+
+int main(int argcnt, char *string[]) {
+	if(argcnt!=2)
+		return 0;
+	char *point = strtok(string[1],",");
 
 	while(point !=NULL){
-		printf("\n%u %s",point,point);
+		printf("\n%s",point);
 		point = strtok(NULL,",");
 	}
+	//NOTE:Original string gets manipulated after strtok() function
 	return EXIT_SUCCESS;
 }
